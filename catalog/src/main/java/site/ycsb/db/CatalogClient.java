@@ -231,7 +231,6 @@ public abstract class CatalogClient <
    */
   @Override
   public Status insert(String table, String key, Map<String, ByteIterator> values){
-    // We don't seem to be using this in the benchmark...?
     if(isMultiTable)
       return Status.NOT_IMPLEMENTED;
 
