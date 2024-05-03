@@ -114,6 +114,9 @@ public abstract class CatalogClient <
   protected static boolean catalogInited = false;
 
   protected void initTables(){
+      if(!isMultiTable)
+          return;
+
       for(int i = 0; i < NUM_TABLES; i++){
         TableIdentifier identifier = TableIdentifier.of(Namespace.empty(), Integer.toString(i));
         try {Thread.sleep(100);} catch (Exception ignored){};

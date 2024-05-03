@@ -26,8 +26,10 @@ public class FileIOCatalogClient extends CatalogClient<FileIOCatalog> {
         properties.put(CatalogProperties.WAREHOUSE_LOCATION, warehouse);
         catalog = new FileIOCatalog("test", gs_location, null, io, Maps.newHashMap());
         initLock.lock();
+        try {Thread.sleep(1000);} catch (Exception ignored){};
         catalog.initialize("YCSB-Bench", properties);
         if(!catalogInited) {
+          try {Thread.sleep(1000);} catch (Exception ignored){};
           initTables();
           catalogInited = true;
         }
